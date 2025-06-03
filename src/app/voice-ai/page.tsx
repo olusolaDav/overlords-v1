@@ -1,4 +1,4 @@
-import { HeroSection } from "@/components/sections/hero-section"
+import { VideoHeroSection } from "@/components/sections/video-hero-section"
 import { VoiceAIComponentsSection } from "@/components/sections/voice-ai-components-section"
 import { VoiceAIDemoSection } from "@/components/sections/voice-ai-demo-section"
 import { Mic, Volume2, MessageSquare, Zap, Brain, Globe } from "lucide-react"
@@ -47,8 +47,9 @@ export const voiceAIFeatures = [
 export default function VoiceAIPage() {
   return (
     <div className="flex min-h-screen flex-col">
-      {/* Hero Section */}
-      <HeroSection
+ 
+
+<VideoHeroSection
         title="The Voice AI platform for enterprise use cases"
         quote={{
           text: "Human language is a new UI layer, bots are the new apps, and digital assistants are the new apps.",
@@ -61,7 +62,8 @@ export default function VoiceAIPage() {
             primary: true,
           },
         ]}
-        backgroundImage="/images/voice-ai-bg.jpeg"
+        videoSrc="/videos/ai-agent.mp4"
+        posterImage="/images/nlp-bg.jpeg"
       />
 
       {/* Proprietary Models Section */}

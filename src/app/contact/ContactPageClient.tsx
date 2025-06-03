@@ -5,6 +5,8 @@ import type React from "react"
 import { HeroSection } from "@/components/sections/hero-section"
 import { Container } from "@/components/ui/container"
 import { Mail, MapPin, Calendar, Linkedin, MessageSquare } from "lucide-react"
+import { VideoHeroSection } from "@/components/sections/video-hero-section"
+
 import { faqData } from "@/data/contact"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
@@ -78,11 +80,15 @@ export default function ContactPageClient() {
   return (
     <div className="flex min-h-screen flex-col">
       {/* Hero Section */}
-      <HeroSection
+   
+
+      <VideoHeroSection
         title="Contact Us"
-        subtitle="Ready to transform your business with AI? Let's discuss your project and explore how we can help you achieve your goals."
-        backgroundImage="/images/heros-banner.jpeg"
+        description="Ready to transform your business with AI? Let's discuss your project and explore how we can help you achieve your goals."
+        videoSrc="/videos/machine-learning.mp4"
+        posterImage="/images/ml-bg.jpeg"
         variant="centered"
+      
       />
 
       {/* Contact Information Section */}

@@ -1,10 +1,12 @@
 import { HeroSection } from "@/components/sections/hero-section"
 import { ExpertCTASection } from "@/components/sections/expert-cta-section"
+import { VideoHeroSection } from "@/components/sections/video-hero-section"
 import { TechStackSection } from "@/components/sections/tech-stack-section"
 import { BenefitsSection } from "@/components/sections/benefits-section"
 import { developmentRoadmap } from "@/data/software-development"
 import { ApproachSection } from "@/components/sections/approach-section"
 import { Container } from "@/components/ui/container"
+
 
 import {
   // Simple Icons (Company/Framework logos) - only verified existing ones
@@ -313,12 +315,14 @@ export default function SoftwareDevelopmentPage() {
   return (
     <div className="flex min-h-screen flex-col">
       {/* Hero Section */}
-      <HeroSection
-        title="Custom Software Development Company"
-        quote={{
-          text: "Software is eating the world",
-          author: "Marc Andreessen",
-        }}
+
+
+  {/* Video Hero Section */}
+  <VideoHeroSection
+           title="Custom Software Development Company"
+        subtitle={"Software is eating the world"}
+        videoSrc="/videos/gen-ai.mp4"
+        posterImage="/images/ai-network-bg.jpeg"
         buttons={[
           {
             text: "Let's Build your Solution",
@@ -326,8 +330,8 @@ export default function SoftwareDevelopmentPage() {
             primary: true,
           },
         ]}
-        backgroundImage="/images/bg.png"
       />
+
 
       {/* Services Section */}
       <section className="py-16 bg-gray-50">

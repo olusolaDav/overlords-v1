@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { HeroSection } from "@/components/sections/hero-section"
+
 import { ServicesSection } from "@/components/sections/services-section"
 import { TypesSection } from "@/components/sections/types-section"
 import { EfficiencyStatsSection } from "@/components/sections/efficiency-stats-section"
@@ -8,6 +8,8 @@ import { ModelsSection } from "@/components/sections/models-section"
 import { UseCasesSection } from "@/components/sections/use-cases-section"
 import { aiAgentServices, aiAgentTypes, aiModels, aiAgentUseCases } from "@/data/ai-agents"
 import { Brain, Layers, MessageSquare, Network, Cpu, BarChart3 } from "lucide-react"
+import { VideoHeroSection } from "@/components/sections/video-hero-section"
+
 
 export const metadata: Metadata = {
   title: "AI Agent Development Services",
@@ -78,20 +80,22 @@ export const aiAgentFeatures = [
 export default function AIAgentsPage() {
   return (
     <div className="flex min-h-screen flex-col">
-      <HeroSection
-        title="AI Agent Development Company"
-        quote={{
-          text: "Most of the web surfing on internet browsers will be through AI Agents not through humans",
-          author: "Vinod Khosla",
-        }}
-        buttons={[
-          {
-            text: "Consult Our Experts",
-            href: "/contact",
-            primary: true,
-          },
-        ]}
-        backgroundImage="/images/heros-banner.jpeg"
+ 
+<VideoHeroSection
+          title="AI Agent Development Company"
+          quote={{
+            text: "Most of the web surfing on internet browsers will be through AI Agents not through humans",
+            author: "Vinod Khosla",
+          }}
+          buttons={[
+            {
+              text: "Consult Our Experts",
+              href: "/contact",
+              primary: true,
+            },
+          ]}
+        videoSrc="/videos/ai-agent.mp4"
+        posterImage="/images/heros-banner.jpeg"
       />
 
       <ServicesSection title="AI Agent Development Services We Offer" services={aiAgentServices} />

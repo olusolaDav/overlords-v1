@@ -1,4 +1,4 @@
-import { HeroSection } from "@/components/sections/hero-section"
+import { VideoHeroSection } from "@/components/sections/video-hero-section"
 import { ServicesSection } from "@/components/sections/services-section"
 import { MethodsSection } from "@/components/sections/methods-section"
 import { TechStackSection } from "@/components/sections/tech-stack-section"
@@ -231,10 +231,14 @@ export const dataScienceTechStack = [
 export default function DataSciencePage() {
   return (
     <div className="flex min-h-screen flex-col">
-      {/* Hero Section */}
-      <HeroSection
-        title="Data science consulting services"
+      
+
+  {/* Video Hero Section */}
+  <VideoHeroSection
+  title="Data science consulting services"
         subtitle="Solve is the new science and Big Data holds the answers"
+        videoSrc="/videos/gen-ai.mp4"
+        posterImage="/images/ai-network-bg.jpeg"
         buttons={[
           {
             text: "Talk to our Data Science Expert",
@@ -242,7 +246,6 @@ export default function DataSciencePage() {
             primary: true,
           },
         ]}
-        backgroundImage="/images/data-science-hero-bg.png"
       />
 
       {/* Services Section */}

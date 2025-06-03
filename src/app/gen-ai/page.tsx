@@ -387,6 +387,7 @@ export default function GenAIPage() {
         ]}
       />
 
+
       {/* Gen-AI Services Section */}
       <section className="bg-gray-50 py-16">
         <Container>
