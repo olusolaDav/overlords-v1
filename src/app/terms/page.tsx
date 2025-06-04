@@ -111,9 +111,8 @@ export default function TermsPage() {
           <h2 className="text-2xl font-semibold mb-4">10. Contact Information</h2>
           <p>If you have any questions about these Terms, please contact us at:</p>
           <p className="mt-2">
-            <strong>Email:</strong> legal@aioverlords.com
-            <br />
-            <strong>Address:</strong> 123 AI Street, San Francisco, CA 94105
+            <strong>Email:</strong> founder@aioverlords.io
+           
           </p>
         </section>
       </div>

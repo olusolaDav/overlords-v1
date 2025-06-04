@@ -22,6 +22,16 @@ export function TestimonialSection({
 
   return (
     <section className={cn("overflow-hidden bg-gray-50 py-12 md:py-16", className)}>
+      <style jsx>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0%);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+      `}</style>
       <Container>
         <div className="flex flex-col items-center justify-center">
           {/* Stars */}
@@ -41,7 +51,13 @@ export function TestimonialSection({
       {/* Scrolling companies with center highlight */}
       <div className="relative w-full overflow-hidden">
         {/* Animated marquee */}
-        <div className="animate-marquee flex whitespace-nowrap">
+        <div
+          className="flex whitespace-nowrap"
+          style={{
+            animation: "scroll 20s linear infinite",
+            transform: "translateX(0%)",
+          }}
+        >
           {allCompanies.map((company, index) => (
             <span key={index} className="mx-8 inline-block text-xl font-medium text-gray-400">
               {company}

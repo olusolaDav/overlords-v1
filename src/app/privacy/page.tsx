@@ -155,9 +155,8 @@ export default function PrivacyPage() {
           <h2 className="text-2xl font-semibold mb-4">10. Contact Us</h2>
           <p>If you have any questions about this Privacy Policy, please contact us:</p>
           <p className="mt-2">
-            <strong>Email:</strong> privacy@aioverlords.com
-            <br />
-            <strong>Address:</strong> 123 AI Street, San Francisco, CA 94105
+            <strong>Email:</strong> founder@aioverlords.io
+          
           </p>
         </section>
       </div>

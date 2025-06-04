@@ -14,7 +14,7 @@ export function UseCasesSection({ title, useCases, ctaText, ctaLink, className }
   return (
     <section className={cn("py-16 md:py-20 bg-gray-50", className)}>
       <Container>
-        <div className="flex flex-col md:flex-row md:items-start justify-between">
+        <div className="flex flex-col md:flex-row md:items-start md:gap-12">
           <div className="mb-8 md:mb-0">
             <h2 className="text-3xl font-bold mb-8">{title}</h2>
             {ctaText && ctaLink && (

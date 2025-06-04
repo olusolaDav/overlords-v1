@@ -150,7 +150,7 @@ export default function ContactPageClient() {
                 <h3 className="text-xl font-semibold mb-3">Connect on LinkedIn</h3>
                 <p className="text-gray-600 mb-6">Follow our updates and connect professionally</p>
                 <a
-                  href="https://www.linkedin.com/company/ai-0overlords/"
+                  href="https://www.linkedin.com/company/ai-0verlords/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center text-primary hover:text-primary/80 font-semibold transition-colors duration-200 border-b border-primary/30 hover:border-primary/60"

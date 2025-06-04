@@ -42,9 +42,12 @@ export function VoiceAIDemoSection({ title, description, buttonText, buttonLink,
               <p className="text-gray-200 mb-4 text-sm">
                 This is Sophia, a voice AI agent assisting doctors with scheduling appointments.
               </p>
-              <div className="bg-white/20 backdrop-blur-sm rounded-full px-6 py-3 text-center">
+              <a
+                href="tel:+16826519423"
+                className="bg-white/20 backdrop-blur-sm rounded-full px-6 py-3 text-center block hover:bg-white/30 transition-colors"
+              >
                 <span className="text-blue-300 font-medium text-lg">+1 (682) 651-9423</span>
-              </div>
+              </a>
             </div>
 
             {/* Alex Card */}
@@ -52,9 +55,12 @@ export function VoiceAIDemoSection({ title, description, buttonText, buttonLink,
               <p className="text-gray-200 mb-4 text-sm">
                 This is Alex, a voice AI agent for real estate lead qualification.
               </p>
-              <div className="bg-white/20 backdrop-blur-sm rounded-full px-6 py-3 text-center">
+              <a
+                href="tel:+14842858095"
+                className="bg-white/20 backdrop-blur-sm rounded-full px-6 py-3 text-center block hover:bg-white/30 transition-colors"
+              >
                 <span className="text-blue-300 font-medium text-lg">+1 (484) 285-8095</span>
-              </div>
+              </a>
             </div>
           </div>
         </div>

@@ -34,7 +34,7 @@ export function Footer() {
               {/* Social Media Icons */}
               <div className="flex space-x-3 mb-6">
                 <Link
-                  href="https://www.linkedin.com/company/ai-0overlords/"
+                  href="https://www.linkedin.com/company/ai-0verlords/"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
