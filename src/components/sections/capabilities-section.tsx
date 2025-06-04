@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils"
-import { Container } from "@/components/ui/container"
+import { cn } from "../../lib/utils"
+import { Container } from "../../components/ui/container"
 
 interface CapabilityPoint {
   text: string

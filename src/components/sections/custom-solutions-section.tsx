@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/custom-button"
+import { cn } from "../../lib/utils"
+import { Button } from "../../components/ui/custom-button"
 
 interface Capability {
   title: string

@@ -1,10 +1,10 @@
 "use client"
 
-import { cn } from "@/lib/utils"
+import { cn } from "../../lib/utils"
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
 import { useState, useEffect } from "react"
-import { Container } from "@/components/ui/container"
+import { Container } from "../../components/ui/container"
 
 interface EfficiencyStatsSectionProps {
   title: string

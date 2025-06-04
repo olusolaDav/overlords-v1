@@ -1,7 +1,7 @@
 import type React from "react"
-import { cn } from "@/lib/utils"
+import { cn } from "../../lib/utils"
 import Image from "next/image"
-import { Container } from "@/components/ui/container"
+import { Container } from "../../components/ui/container"
 
 interface MethodItem {
   title: string

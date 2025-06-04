@@ -1,7 +1,7 @@
 import type React from "react"
-import { cn } from "@/lib/utils"
+import { cn } from "../../lib/utils"
 import { Brain, Layers, MessageSquare, Network, Cpu, BarChart3 } from "lucide-react"
-import { Container } from "@/components/ui/container"
+import { Container } from "../../components/ui/container"
 
 interface FeatureProps {
   title: string

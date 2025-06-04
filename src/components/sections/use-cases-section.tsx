@@ -1,6 +1,6 @@
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/custom-button"
-import { Container } from "@/components/ui/container"
+import { cn } from "../../lib/utils"
+import { Button } from "../../components/ui/custom-button"
+import { Container } from "../../components/ui/container"
 
 interface UseCasesSectionProps {
   title: string

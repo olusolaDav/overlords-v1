@@ -1,7 +1,7 @@
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/custom-button"
+import { cn } from "../../lib/utils"
+import { Button } from "../../components/ui/custom-button"
 import Image from "next/image"
-import { Container } from "@/components/ui/container"
+import { Container } from "../../components/ui/container"
 
 interface ExpertCTASectionProps {
   title: string

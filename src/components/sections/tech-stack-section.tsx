@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { useState, useRef, useEffect } from "react"
-import { Container } from "@/components/ui/container"
+import { Container } from "../../components/ui/container"
 
 interface TechItem {
   name: string

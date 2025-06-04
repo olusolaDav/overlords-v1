@@ -1,6 +1,6 @@
 import type React from "react"
-import { cn } from "@/lib/utils"
-import { Container } from "@/components/ui/container"
+import { cn } from "../../lib/utils"
+import { Container } from "../../components/ui/container"
 
 interface BenefitProps {
   icon: React.ReactNode

@@ -1,7 +1,7 @@
-import { cn } from "@/lib/utils"
-import { ServiceCard } from "@/components/service-card"
-import { Button } from "@/components/ui/custom-button"
-import { Container } from "@/components/ui/container"
+import { cn } from "../../lib/utils"
+import { ServiceCard } from "../../components/service-card"
+import { Button } from "../../components/ui/custom-button"
+import { Container } from "../../components/ui/container"
 
 interface ServiceItem {
   icon: string
