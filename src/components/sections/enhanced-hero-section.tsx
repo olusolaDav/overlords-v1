@@ -1,9 +1,9 @@
 "use client"
 
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/custom-button"
+import { cn } from "../../lib/utils"
+import { Button } from "../ui/custom-button"
 import Image from "next/image"
-import { Container } from "@/components/ui/container"
+import { Container } from "../ui/container"
 
 interface HeroButtonProps {
   text: string
