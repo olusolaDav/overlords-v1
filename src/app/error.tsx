@@ -4,7 +4,39 @@ import { useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { AlertTriangle, RefreshCw, Home } from "lucide-react"
 import Link from "next/link"
-import { errorData } from "@/data/error-pages"
+
+const errorData = {
+  heading: "Something Went Wrong",
+  subtitle: "Our AI encountered an unexpected error.",
+  description: "Don't worry, our neural networks are working to fix this issue.",
+  buttons: {
+    primary: {
+      text: "Try Again",
+    },
+    secondary: {
+      text: "Back to Home",
+      href: "/",
+    },
+  },
+  helpSection: {
+    title: "Still Having Issues?",
+    description: "If this error persists, please contact our support team with the error details.",
+    actions: [
+      {
+        text: "Contact Support",
+        href: "/contact",
+      },
+      {
+        text: "View Our Work",
+        href: "/projects",
+      },
+    ],
+  },
+  errorDetails: {
+    title: "Error Details:",
+    errorIdLabel: "Error ID:",
+  },
+}
 
 export default function Error({
   error,
