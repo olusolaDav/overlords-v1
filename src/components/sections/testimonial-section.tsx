@@ -1,80 +1,44 @@
-"use client"
+import { cn } from "../../lib/utils"
+import { Container } from "../ui/container"
+import Image from "next/image"
 
-import { cn } from "@/lib/utils"
-import { Star } from "lucide-react"
-import { Container } from "@/components/ui/container"
+interface Company {
+  name: string
+  logo: string
+}
 
 interface TestimonialSectionProps {
   rating: string
   customers: string
-  companies: string[]
+  companies: Company[]
   className?: string
 }
 
-export function TestimonialSection({
-  rating = "4.9/5",
-  customers = "From 50+ Customers",
-  companies = ["TestGenie", "AnkorDocs", "Alphavatar", "Liwy", "Enrolla", "Bunky"],
-  className,
-}: TestimonialSectionProps) {
-  // Double the array for seamless looping
-  const allCompanies = [...companies, ...companies]
-
+export function TestimonialSection({ rating, customers, companies, className }: TestimonialSectionProps) {
   return (
-    <section className={cn("overflow-hidden bg-gray-50 py-12 md:py-16", className)}>
+    <section className={cn("py-12 md:py-16 lg:py-24 xl:py-32 bg-gray-50", className)}>
       <Container>
-        <div className="flex flex-col items-center justify-center">
-          {/* Stars */}
-          <div className="mb-2 flex">
-            {[1, 2, 3, 4, 5].map((star) => (
-              <Star key={star} className="h-8 w-8 fill-yellow-400 text-yellow-400" />
+        <div className="text-center">
+          <div className="mb-8">
+            <div className="text-4xl font-bold mb-2">{rating}</div>
+            <div className="text-lg text-gray-600">{customers}</div>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center opacity-60">
+            {companies.map((company, index) => (
+              <div key={index} className="flex items-center justify-center">
+                <Image
+                  src={company.logo || "/placeholder.svg"}
+                  alt={company.name}
+                  width={120}
+                  height={60}
+                  className="max-h-12 w-auto object-contain"
+                />
+              </div>
             ))}
           </div>
-
-          {/* Rating */}
-          <p className="mb-10 text-center text-xl font-medium">
-            {rating} <span className="text-muted-foreground">{customers}</span>
-          </p>
         </div>
       </Container>
-
-      {/* Scrolling companies with center highlight */}
-      <div className="relative w-full overflow-hidden">
-        {/* Animated marquee */}
-        <div className="animate-marquee flex whitespace-nowrap">
-          {allCompanies.map((company, index) => (
-            <span key={index} className="mx-8 inline-block text-xl font-medium text-gray-400">
-              {company}
-            </span>
-          ))}
-        </div>
-
-        {/* Center highlight overlay */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="h-full w-full flex items-center justify-center">
-            <div className="relative w-full">
-              {/* Gradient mask for center highlight */}
-              <div
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "linear-gradient(90deg, transparent 0%, transparent 35%, black 50%, transparent 65%, transparent 100%)",
-                  mixBlendMode: "overlay",
-                }}
-              ></div>
-
-              {/* Edge fade */}
-              <div
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "linear-gradient(90deg, rgba(249,250,251,1) 0%, transparent 15%, transparent 85%, rgba(249,250,251,1) 100%)",
-                }}
-              ></div>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
   )
 }

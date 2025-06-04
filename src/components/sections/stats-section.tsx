@@ -1,36 +1,29 @@
-import { cn } from "@/lib/utils"
+import { cn } from "../../lib/utils"
+import { Container } from "../ui/container"
 
-interface StatProps {
+interface Stat {
   value: string
   label: string
 }
 
-function Stat({ value, label }: StatProps) {
-  return (
-    <div className="flex items-center mb-8 last:mb-0">
-      <span className="text-7xl font-black text-black mr-4">{value}</span>
-      <span className="text-xl text-black">{label}</span>
-    </div>
-  )
-}
-
 interface StatsSectionProps {
-  stats: StatProps[]
+  stats: Stat[]
   className?: string
 }
 
 export function StatsSection({ stats, className }: StatsSectionProps) {
   return (
-    <section className={cn("py-16", className)}>
-      <div className="w-[90vw] bg-primary ml-0">
-        <div className="py-12 sm:pl-6 lg:pl-8">
-          <div className="flex flex-col px-8 sm:px-16 lg:px-32 ">
-            {stats.map((stat, index) => (
-              <Stat key={index} {...stat} />
-            ))}
-          </div>
+    <section className={cn("py-12 md:py-16 lg:py-24 xl:py-32 bg-gray-50", className)}>
+      <Container>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          {stats.map((stat, index) => (
+            <div key={index}>
+              <div className="text-4xl font-bold text-primary mb-2">{stat.value}</div>
+              <div className="text-gray-600">{stat.label}</div>
+            </div>
+          ))}
         </div>
-      </div>
+      </Container>
     </section>
   )
 }
