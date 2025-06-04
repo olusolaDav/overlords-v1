@@ -1,10 +1,10 @@
 import type React from "react"
 import type { Metadata } from "next"
 import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
+import { ThemeProvider } from "../components/theme-provider"
 import { Toaster } from "sonner"
-import { Navbar } from "@/components/layout/navbar"
-import { Footer } from "@/components/layout/footer"
+import { Navbar } from "../components/layout/navbar"
+import { Footer } from "../components/layout/footer"
 import { Poppins, Playfair_Display } from "next/font/google"
 
 // Initialize the Google Fonts with Next.js 15.3 optimizations
