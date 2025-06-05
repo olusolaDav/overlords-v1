@@ -32,9 +32,9 @@ export const allProjects: ProjectCardProps[] = [
     image: "/images/portfolio-5.png",
   },
   {
-    title: "AI-Powered Automated Data Pipelines",
+    title: "AI-Driven Adaptive Math Learning Platform",
     description:
-      "We built an AI-driven data scraping tool that automates extraction from pages and subpages using connected robots. The system allows data exported from one robot to be used as input for another robot, creating powerful data pipelines that scale with your business needs.",
+      " MathAI  is an AI-powered educational platform designed to assist students in solving math problems through interactive and personalized learning experiences. It offers features such as step-by-step solutions, interactive lessons, and a user-friendly interface to enhance students' understanding of mathematical concepts. Users can access the platform by signing up with their email and selecting their class level. MathAI aims to make math learning more engaging and effective for students across various grade levels.",
     image: "/images/portfolio-6.png",
   },
   {

@@ -41,14 +41,7 @@ export default function ProjectsPage() {
         videoSrc="/videos/gen-ai.mp4"
         posterImage="/images/network-circuit-bg.jpeg"
         variant="centered"
-        buttons={[
-          {
-            text: "Explore more Projects",
-            href: "#projects",
-            primary: true,
-            className: "bg-primary text-black",
-          },
-        ]}
+    
       />
 
       <section id="projects" className="py-12 md:py-16">
