@@ -41,7 +41,14 @@ export default function ProjectsPage() {
         videoSrc="/videos/gen-ai.mp4"
         posterImage="/images/network-circuit-bg.jpeg"
         variant="centered"
-    
+        buttons={[
+          {
+            text: "Explore more Projects",
+            href: "#projects",
+            primary: true,
+            className: "bg-primary text-black",
+          },
+        ]}
       />
 
       <section id="projects" className="py-12 md:py-16">
@@ -50,7 +57,7 @@ export default function ProjectsPage() {
           <p className="mb-12 text-center text-gray-700 max-w-3xl mx-auto">
             We've built a range of AI applications and engineered solutions to help businesses solve real-world
             problems. Our work spans multiple industries and technologies, delivering measurable results and
-            transformative experiences.
+            transformative experiences.   
           </p>
         </Container>
       </section>
