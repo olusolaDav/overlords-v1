@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        nodejs "NodeJS"  // Make sure "NodeJS" is configured in Jenkins Global Tool Configuration
-    }
-
     environment {
         NODE_ENV = "production"
     }
@@ -16,9 +12,23 @@ pipeline {
             }
         }
 
+        stage('Install Node.js') {
+            steps {
+                sh '''
+                  # Install Node.js if not available
+                  if ! command -v node > /dev/null; then
+                    curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+                    sudo apt-get install -y nodejs
+                  fi
+                  node -v
+                  npm -v
+                '''
+            }
+        }
+
         stage('Install Dependencies') {
             steps {
-                sh 'npm ci'   // Use npm install if no package-lock.json
+                sh 'npm ci || npm install'
             }
         }
 
@@ -50,7 +60,6 @@ pipeline {
             }
             steps {
                 echo 'Deploy step goes here (e.g., Vercel CLI, Docker build & push, or SSH to server)'
-                // Example for Vercel: sh 'npx vercel --prod --token=$VERCEL_TOKEN'
             }
         }
         */
