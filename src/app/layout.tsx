@@ -5,27 +5,6 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "sonner"
 import { Navbar } from "@/components/layout/navbar"
 import { Footer } from "@/components/layout/footer"
-import { Poppins, Playfair_Display } from "next/font/google"
-
-// Initialize the Google Fonts with Next.js 15.3 optimizations
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-  variable: "--font-poppins",
-  preload: true,
-  fallback: ["system-ui", "sans-serif"],
-  adjustFontFallback: false, // Next.js 15.3 feature
-})
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-  variable: "--font-playfair",
-  preload: true,
-  adjustFontFallback: false, // Next.js 15.3 feature
-})
 
 export const metadata: Metadata = {
   title: {
@@ -108,8 +87,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${poppins.variable} ${playfair.variable}`}>
-      <body className={poppins.className}>
+    <html lang="en" suppressHydrationWarning>
+      <body className="font-sans antialiased">
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           <Navbar />
           <main className="flex-1">{children}</main>
