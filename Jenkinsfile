@@ -1,10 +1,6 @@
 pipeline {
   agent any
 
-  tools {
-    nodejs "Node20"   // 👈 must match the name you set in Manage Jenkins → Tools
-  }
-
   environment {
     NODE_ENV = 'production'
   }
@@ -19,24 +15,27 @@ pipeline {
     stage('Install Dependencies') {
       steps {
         sh '''
-          if [ -f package-lock.json ]; then
-            npm ci || npm install --legacy-peer-deps
-          else
-            npm install --legacy-peer-deps
-          fi
+          echo "📦 Installing dependencies (with dev)..."
+          npm install --legacy-peer-deps --include=dev
         '''
       }
     }
 
     stage('Lint') {
       steps {
-        sh 'npm run lint'
+        sh '''
+          echo "🔍 Running lint..."
+          npm run lint
+        '''
       }
     }
 
     stage('Build') {
       steps {
-        sh 'npm run build'
+        sh '''
+          echo "🏗️ Building project..."
+          npm run build
+        '''
       }
     }
 
@@ -45,7 +44,10 @@ pipeline {
         branch 'main'
       }
       steps {
-        sh 'npm run start &'
+        sh '''
+          echo "🚀 Starting app..."
+          npm run start &
+        '''
       }
     }
   }
