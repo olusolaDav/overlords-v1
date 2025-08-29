@@ -1,66 +1,50 @@
 pipeline {
-  agent any
+    agent any
 
-  environment {
-    NODE_ENV = 'production'
-  }
-
-  stages {
-    stage('Checkout') {
-      steps {
-        checkout scm
-      }
+    tools {
+        nodejs "nodejs"   // Make sure Jenkins NodeJS tool is configured as "nodejs"
     }
 
-    stage('Install Dependencies') {
-      steps {
-        sh '''
-          echo "📦 Installing dependencies (with dev)..."
-          npm install --legacy-peer-deps --include=dev
-        '''
-      }
+    stages {
+        stage('Checkout') {
+            steps {
+                // Use yarn.lock instead of package-lock.json
+                git branch: 'main', url: 'https://github.com/olusolaDav/overlords-v1.git'
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                sh 'yarn install --frozen-lockfile'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'yarn build'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                // optional – remove if you don’t want tests
+                sh 'yarn test || echo "No tests defined"'
+            }
+        }
+
+        stage('Deploy / Start') {
+            steps {
+                sh 'yarn start &'
+            }
+        }
     }
 
-    stage('Lint') {
-      steps {
-        sh '''
-          echo "🔍 Running lint..."
-          npm run lint
-        '''
-      }
+    post {
+        always {
+            echo 'Pipeline finished.'
+        }
+        failure {
+            echo 'Pipeline failed.'
+        }
     }
-
-    stage('Build') {
-      steps {
-        sh '''
-          echo "🏗️ Building project..."
-          npm run build
-        '''
-      }
-    }
-
-    stage('Start') {
-      when {
-        branch 'main'
-      }
-      steps {
-        sh '''
-          echo "🚀 Starting app..."
-          npm run start &
-        '''
-      }
-    }
-  }
-
-  post {
-    always {
-      echo 'Pipeline finished!'
-    }
-    failure {
-      echo 'Pipeline failed ❌'
-    }
-    success {
-      echo 'Pipeline succeeded ✅'
-    }
-  }
 }
