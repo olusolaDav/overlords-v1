@@ -10,6 +10,7 @@ pipeline {
             steps {
                 // Use yarn.lock instead of package-lock.json
                 git branch: 'main', url: 'https://github.com/olusolaDav/overlords-v1.git'
+                sh "echo Sleep-Time - ${params.SLEEP_TIME}, Port - ${params.APP_PORT}, Branch - ${params.BRANCH_NAME}"
             }
         }
 
@@ -35,6 +36,12 @@ pipeline {
         stage('Deploy / Start') {
             steps {
                 sh 'yarn start &'
+            }
+        }
+        stage('Final Integration Testing') {
+            steps {
+                sh "sleep ${params.SLEEP_TIME}"
+                sh "curl -s http://localhost:${params.PORT} || echo 'Service not reachable"
             }
         }
     }
