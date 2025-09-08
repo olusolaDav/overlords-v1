@@ -9,6 +9,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/olusolaDav/overlords-v1.git'
+                sh "echo Sleep-Time - ${params.SLEEP_TIME}, Port - ${params.APP_PORT}, Branch - ${params.BRANCH_NAME}"
             }
         }
 
@@ -71,7 +72,13 @@ pipeline {
         stage('Smoke Test') {
             steps {
                 sh 'echo "Running smoke test to verify deployment..."'
-                // Example: curl localhost:3000/health
+
+            }
+        }
+        stage('Integration Testing') {
+            steps {
+                sh "sleep ${params.SLEEP_TIME}"
+                sh "curl -s http://localhost:${params.PORT} || echo 'Service not reachable"
             }
         }
     }
