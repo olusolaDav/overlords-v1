@@ -75,7 +75,7 @@ pipeline {
 
             }
         }
-        stage('Integration Testing') {
+        stage('Final Integration Testing') {
             steps {
                 sh "sleep ${params.SLEEP_TIME}"
                 sh "curl -s http://localhost:${params.PORT} || echo 'Service not reachable"
