@@ -56,13 +56,6 @@ pipeline {
             }
         }
 
-        stage('Package Artifact') {
-            steps {
-                sh 'tar -czf build-artifact.tar.gz dist/'
-                archiveArtifacts artifacts: 'build-artifact.tar.gz', fingerprint: true
-            }
-        }
-
         stage('Deploy / Start') {
             steps {
                 sh 'yarn start &'
