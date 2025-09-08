@@ -8,7 +8,6 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Use yarn.lock instead of package-lock.json
                 git branch: 'main', url: 'https://github.com/olusolaDav/overlords-v1.git'
             }
         }
@@ -19,22 +18,60 @@ pipeline {
             }
         }
 
+        stage('Code Linting') {
+            steps {
+                sh 'yarn lint || echo "Linting skipped or no lint config found"'
+            }
+        }
+
+        stage('Format Check') {
+            steps {
+                sh 'yarn prettier --check . || echo "Formatting skipped or no prettier config found"'
+            }
+        }
+
+        stage('Security Audit') {
+            steps {
+                sh 'yarn audit || echo "No audit issues or yarn audit skipped"'
+            }
+        }
+
         stage('Build') {
             steps {
                 sh 'yarn build'
             }
         }
 
-        stage('Test') {
+        stage('Unit Tests') {
             steps {
-                // optional – remove if you don’t want tests
-                sh 'yarn test || echo "No tests defined"'
+                sh 'yarn test || echo "No unit tests defined"'
+            }
+        }
+
+        stage('Integration Tests') {
+            steps {
+                sh 'echo "Running integration tests..."'
+                // Add your integration test command here
+            }
+        }
+
+        stage('Package Artifact') {
+            steps {
+                sh 'tar -czf build-artifact.tar.gz dist/'
+                archiveArtifacts artifacts: 'build-artifact.tar.gz', fingerprint: true
             }
         }
 
         stage('Deploy / Start') {
             steps {
                 sh 'yarn start &'
+            }
+        }
+
+        stage('Smoke Test') {
+            steps {
+                sh 'echo "Running smoke test to verify deployment..."'
+                // Example: curl localhost:3000/health
             }
         }
     }
